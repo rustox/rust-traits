@@ -1,0 +1,13 @@
+
+when code involves polymorphism, there needs to be a mechanism to determine which specific version is actually run.
+
+dispatch
+
+static dispatch
+dynamic dispatch
+
+Rust favours 'static dispatch'.
+
+However, Rust also supports 'dynamic' dispatch using 'trait' objects.
+
+
