@@ -1,0 +1,63 @@
+Traits are an object-oriented programming language construct that allow groups of methods to be named and reusedin arbitrary places in an inheritance hierarchy. 
+
+Classes can use methods from traits as well as defining their own methods and instance variables. 
+
+Traits thus enable a new style of programming, in which traits rather than classes are the primary unit of reuse. 
+
+This workshop focuses on 'Traits' extensively. The topics we cover are, 
+
+• Polymorphism Review
+
+• Generics
+
+• Traits Overview
+• Rules for implementing traits
+• multiple trait bounds
+• where clause
+• default methods
+• inheritance
+• deriving
+• Trait Objects
+• Working with multiple error types
+• Standard library traits used for error handling
+
+--
+
+trait
+a distinguishing quality or characteristic
+
+rust
+A trait is a language feature that tells the rust compiler about functionality a 'type' must provide.
+
+we first define a trait with a method signature
+
+then implement the trait of a type
+
+
+--
+one implement a trait for any type
+
+two restrictions around implementing traits 
+
+. if the trait isn't defined in your scope, it doesn't apply
+. either the trait or the type you're implementing it for must be defined by you.
+
+
+Traits are useful because they allow a type to make certain promises about its behaviour.
+
+Generic functions can exploit this to constrain or bound, the types they accept.
+
+--
+Deriving is limited to certain set of traits
+
+ Clone
+ Copy
+ Debug
+ Default
+ Eq
+ Hash
+ Ord
+ PartialEq
+ PartialOrd
+
+
