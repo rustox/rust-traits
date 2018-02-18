@@ -12,7 +12,7 @@ impl Person {
     pub fn add_name(&mut self, arg_name: String) {
         self.name.push_str(&arg_name)
     }
-    pub fn get_name_clone(&self) -> String {
+    pub fn get_name_clone(self) -> String {
         self.name.clone()
     }
     pub fn get_name_ref(&self) -> &String {
@@ -24,18 +24,22 @@ impl Person {
     //        &self.name
     //    }
 
-    //3
-    //    pub fn flush(&mut self) {
-    //        self.name = String::new()
-    //    }
+    
+   pub fn flush(&mut self) {
+   self.name = String::new()
+   }
 }
 
 fn main() {
     let mut rk = Person::new();
+    println!("EMPTY CALL : {}", rk.get_name_clone());
     rk.add_name("Raj Kiran".to_string());
+    rk.add_name(" is funny!".to_string());
     let rk_name;
     rk_name = rk.get_name_ref();
-    println!("CLONED : {}", rk.get_name_clone());
+//    rk.flush();
+
+    //    println!("CLONED : {}", rk.get_name_clone());
     println!("REFERENCE : {}", rk_name);
     //3
     //    rk.flush();
@@ -43,14 +47,13 @@ fn main() {
 
     // 1
 /*
-    let my_name ;
+    let my_name;
     {
         let mut scoped_rk = Person::new();
         scoped_rk.add_name("Scoped Raj Kiran".to_string());
         my_name = scoped_rk.get_name_ref();
-        println!("{}", my_name);
-
+        println!("INSIDE:  {}", my_name);
     }
-    println!("{}",my_name);
-
-*/}
+    println!("OUTSIDE : {}", my_name);
+    */
+}

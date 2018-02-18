@@ -1,28 +1,80 @@
 struct Indian {
-    name: String,
+pub    name: String,
 }
 
 struct Chineese {
-    name: String,
+pub    name: String,
 }
 
 struct British {
-    name: String,
+pub   name: String,
 }
 
-pub trait English {}
-
-pub fn speak_english<T: English>(person: T) -> String {
-    String::from("Speaking English")
+struct Alien {
+pub    name: String,
 }
 
-impl English for British {}
+pub trait Speak {
+    fn speaking(&self) ;
+    
 
-impl English for Indian {}
+}
+
+impl Speak for Indian {
+    fn speaking(&self) {
+        println!("Speaking Indian Languages");
+    }
+}
+
+// How it doesn't raise an error if called with self.name instead of &self.name
+impl Speak for Chineese{
+    fn speaking(&self) {
+        println!("{} Speaking Chineese Languages", self.name);
+    }
+}
+
+impl Speak for British{
+    fn speaking(&self) {
+        println!("Speaking English Languages");
+    }
+}
+
+struct SpeakAllLanguages {
+    pub speaks: Vec<Box<Speak>>
+}
+
+impl SpeakAllLanguages {
+    fn speakingAll (&self) {
+        for lang in self.speaks.iter() {
+
+            lang.speaking();
+
+        }
+
+    }
+}
+
+
+
+
 
 fn main() {
-    let kiran = Indian {
-        name: String::from("Raj Kiran "),
-    };
-    println!("{}", speak_english(kiran));
+
+let     indian = Indian{ name: "Raj Kiran".to_string() };
+let     chineese = Chineese{ name: "Ching Chang".to_string() };
+
+let     british = British{ name: "Raj Kiran".to_string() };
+
+
+//let boxIndian = Box::new(Indian {name: "Raj Kiran".to_string() } );
+ let boxIndian = Box::new(indian);
+ let boxChineese = Box::new(chineese);
+ let boxBritish = Box::new(british);
+
+ let speakAll = SpeakAllLanguages {
+
+     speaks: vec![boxIndian, boxChineese, boxBritish]
+ };
+
+ speakAll.speakingAll();
 }

@@ -14,6 +14,8 @@ fn do_something<T: Foo>(x: T) {
     println!("{}",x.method());
 }
 
+// String : String::from(<literal value>)
+// &str : literal 
 fn main() {
     let x = 5u8;
     let y = "Hello".to_string();
